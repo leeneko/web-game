@@ -1,0 +1,16 @@
+# Node & React build artifacts
+node_modules/
+build/
+dist/
+
+# Logs
+logs/
+*.log
+
+# Env files
+.env
+.env.*
+
+# System
+.DS_Store
+*.swp

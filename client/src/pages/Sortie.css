@@ -1,0 +1,93 @@
+.sortie-container {
+  padding: 20px;
+  color: #fff;
+}
+
+.sortie-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.map-list-panel {
+  flex: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.sortie-info-panel {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.map-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.map-card {
+  border: 2px solid #555;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #333;
+}
+
+.map-card:hover {
+  border-color: #999;
+  transform: translateY(-2px);
+}
+
+.map-card.selected {
+  border-color: #4CAF50; /* 녹색 계열 */
+  box-shadow: 0 0 10px #4CAF50;
+}
+
+.map-card.locked {
+  cursor: not-allowed;
+  background-color: #222;
+  color: #666;
+  opacity: 0.7;
+}
+
+.map-card.locked:hover {
+  border-color: #555;
+  transform: none;
+}
+
+.map-card-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #ddd;
+}
+
+.map-card-body {
+  font-size: 0.9em;
+}
+
+.sortie-start-btn {
+  background-color: #4CAF50; /* 녹색 계열 */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.sortie-start-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #f44336; /* 빨간색 계열 */
+  margin-top: 15px;
+}

@@ -1,0 +1,121 @@
+/* ~/client/src/components/Factory.css */
+
+/* --- 공창(Factory) 전용 스타일 --- */
+.factory-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- 상단 건조 타입 패널 --- */
+.build-panel {
+    background-color: var(--bg-main);
+    padding: 1.5rem;
+    border-radius: var(--panel-border-radius);
+    border: 1px solid var(--border-color);
+}
+.panel-title {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+.build-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.build-type-card, .tutorial-build-card {
+    background-color: var(--bg-panel);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.2s ease;
+}
+.build-type-card:hover {
+    border-color: var(--accent-color);
+}
+.build-type-card h4 {
+    margin: 0;
+    color: var(--accent-color);
+}
+.resource-cost {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+/* --- 하단 건조 독 그리드 --- */
+.docks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- 개별 독 카드 디자인 --- */
+.dock-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--panel-border-radius);
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+.dock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-panel);
+}
+.dock-header h4 { margin: 0; }
+.dock-status-text {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.dock-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    text-align: center;
+}
+.dock-message {
+    color: var(--text-secondary);
+}
+
+/* 상태별 스타일 */
+.dock-status-complete .dock-header { background-color: var(--color-green); }
+.dock-status-complete .dock-status-text { background-color: rgba(255,255,255,0.2); color: white; }
+
+.dock-status-building .building-timer { font-size: 1.5rem; font-weight: bold; color: var(--accent-color); }
+
+.dock-status-locked {
+    background-color: var(--bg-panel-hover);
+    color: var(--text-secondary);
+}
+.lock-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+}

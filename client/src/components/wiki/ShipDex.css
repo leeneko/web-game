@@ -1,0 +1,65 @@
+/* ~/client/src/components/wiki/ShipDex.css */
+
+/* --- 도감(ShipDex) 전용 테이블 스타일 --- */
+
+.table-container {
+    overflow-x: auto; /* 테이블이 넓어지면 가로 스크롤 생성 */
+}
+
+.ship-dex-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* --- 테이블 헤더 --- */
+.ship-dex-table thead tr {
+    background-color: var(--bg-panel-hover);
+    color: var(--text-primary);
+    text-align: left;
+    font-weight: bold;
+}
+
+.ship-dex-table th {
+    padding: 12px 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- 테이블 본문 및 행(row) --- */
+.ship-dex-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+/* 짝수 행에 미세한 배경색을 주어 가독성 향상 (Zebra-striping) */
+.ship-dex-table tbody tr:nth-of-type(even) {
+    background-color: var(--bg-panel-hover);
+}
+
+.ship-dex-table tbody tr:hover {
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+}
+
+/* --- 테이블 셀(cell) --- */
+.ship-dex-table td {
+    padding: 12px 15px;
+}
+
+.ship-dex-table .ship-name-cell {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* --- 텍스트 정렬용 유틸리티 클래스 --- */
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}

@@ -1,0 +1,148 @@
+/* ~/client/src/components/Formation.css */
+
+.formation-page {
+  display: flex;
+  gap: 1.5rem;
+  height: 100%;
+  max-height: calc(100vh - 130px); /* 헤더, 마진 등 고려 */
+}
+
+/* 좌측: 함대 패널 */
+.fleet-panel {
+  width: 40%;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fleet-tabs {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.fleet-tab {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  background-color: #3e4451;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+.fleet-tab:not(:last-child) { border-right: none; }
+.fleet-tab:first-child { border-radius: 4px 0 0 4px; }
+.fleet-tab:last-child { border-radius: 0 4px 4px 0; }
+.fleet-tab:hover { background-color: #525a6b; }
+.fleet-tab.active {
+  background-color: var(--primary-text-color);
+  color: white;
+  border-color: var(--primary-text-color);
+}
+
+.fleet-slots-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.fleet-slot-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: var(--secondary-bg-color);
+  min-height: 50px;
+}
+.fleet-slot-card.selected {
+  border-color: var(--primary-text-color);
+  box-shadow: 0 0 8px rgba(233, 69, 96, 0.5);
+  background-color: #1e2a4a;
+}
+
+.slot-index {
+  padding: 0 15px;
+  font-weight: bold;
+  color: #888;
+  border-right: 1px solid var(--border-color);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.ship-info, .empty-slot {
+  flex-grow: 1;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.empty-slot { cursor: pointer; color: #888; }
+.empty-slot:hover { background-color: #1e2a4a; }
+
+.change-button, .unassign-button, .save-fleet-button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+.change-button { background-color: #525a6b; color: white; padding: 4px 8px; font-size: 0.8em; }
+.unassign-button { background-color: #5c3b3b; color: #ffc2c2; padding: 4px 8px; font-size: 0.8em; }
+.save-fleet-button {
+  padding: 12px;
+  font-size: 1.1em;
+  background-color: var(--highlight-color);
+  color: white;
+  margin-top: 15px;
+}
+
+/* 우측: 보유 함선 패널 */
+.available-ships-panel {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.available-ships-panel h3 { margin: 0 0 1rem 0; color: white; }
+
+.available-ships-grid {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+.ship-assign-card {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--secondary-bg-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ship-assign-card:hover {
+  border-color: var(--primary-text-color);
+  transform: translateY(-2px);
+}
+.ship-assign-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background-color: #3e4451;
+  font-size: 0.9rem;
+}
+.ship-assign-header .ship-name { font-weight: bold; }
+.ship-assign-body { padding: 10px; font-size: 0.85rem; }
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .formation-page { flex-direction: column; }
+  .fleet-panel { width: 100%; }
+  .available-ships-panel { min-height: 300px; }
+}

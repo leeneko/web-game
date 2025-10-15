@@ -1,0 +1,151 @@
+/* ~/client/src/components/HomePort.css */
+
+.homeport-container {
+    height: 100%;
+    padding: 0;
+}
+
+/* --- 페이지 제목 스타일 (디자인 시스템에 맞게 수정) --- */
+.page-title {
+    font-size: 1.8rem;
+    color: var(--text-primary); /* 변수 사용 */
+    margin-bottom: 5px;
+}
+.page-description {
+    font-size: 1rem;
+    color: var(--text-secondary); /* 변수 사용 */
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* --- 함선 카드 그리드 (구조 유지) --- */
+.ship-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* 카드 최소 너비 조정 */
+    gap: 20px;
+}
+
+/* --- 함선 카드 디자인 (완전 재설계) --- */
+.ship-card {
+    background-color: var(--bg-main); /* 패널보다 어두운 배경으로 카드 구분 */
+    border: 1px solid var(--border-color);
+    border-radius: var(--panel-border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+}
+.ship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3); /* Accent 색상으로 빛나는 효과 */
+    border-color: var(--accent-color);
+}
+
+/* --- 함선 카드 헤더 --- */
+.ship-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: var(--bg-panel-hover); /* 헤더 배경 강조 */
+    border-bottom: 1px solid var(--border-color);
+}
+.ship-card-header .ship-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+.ship-card-header .ship-level {
+    font-size: 0.9rem;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* --- 함선 카드 본문 --- */
+.ship-card-body {
+    padding: 15px;
+}
+
+/* --- HP 바 디자인 개선 --- */
+.hp-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 0.9rem;
+}
+.hp-label {
+    font-weight: bold;
+    color: var(--color-red); /* 시스템 색상 사용 */
+    margin-right: 8px;
+}
+.hp-bar {
+    flex-grow: 1;
+    height: 12px;
+    background-color: var(--bg-main); /* 어두운 배경 */
+    border-radius: 6px;
+    border: 1px solid var(--border-color); /* 테두리 추가 */
+    overflow: hidden;
+}
+.hp-bar-current {
+    height: 100%;
+    background-color: var(--color-green); /* 시스템 색상 사용 */
+    border-radius: 5px; /* 내부 바에도 radius 적용 */
+    transition: width 0.3s ease;
+}
+.hp-text {
+    margin-left: 8px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    min-width: 60px;
+    text-align: right;
+}
+
+/* --- 함선 없음 메시지 --- */
+.no-ships-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary); /* 변수 사용 */
+    font-size: 1.1rem;
+    background-color: var(--bg-main);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--panel-border-radius);
+}
+
+/* --- 함선 카드 스탯 (미사용 시 무시) --- */
+.ship-card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 10px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- 함선 카드 푸터 (미사용 시 무시) --- */
+.ship-card-footer {
+    padding: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    background-color: var(--bg-panel-hover);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+/* --- 모바일 반응형 (유지 및 개선) --- */
+@media (max-width: 768px) {
+    .homeport-container {
+        padding: 0;
+    }
+    .ship-card-grid {
+        grid-template-columns: 1fr; /* 모바일에서는 1열로 표시 */
+        gap: 15px;
+    }
+    .page-title {
+        font-size: 1.5rem;
+    }
+}

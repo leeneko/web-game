@@ -1,0 +1,205 @@
+/* ~/client/src/App.css */
+
+/* --- 기본 다크 테마 및 폰트 설정 --- */
+:root {
+  --bg-main: #10141f; /* 더 깊고 전문적인 네이비 */
+  --bg-panel: #1a2233; /* 패널 및 헤더 배경 */
+  --bg-panel-hover: #243049; /* 호버 시 밝아지는 패널 */
+  --border-color: #3a4a6b;
+  --text-primary: #e0e5f0; /* 주요 텍스트 (부드러운 흰색) */
+  --text-secondary: #8a99b4; /* 보조 텍스트 (연한 회색) */
+  --accent-color: #00aaff; /* 하이라이트 및 주요 액션 (시원한 파란색) */
+  --accent-color-hover: #00c2ff;
+  --color-green: #2ecc71; /* 출격, 성공 */
+  --color-red: #e74c3c; /* 로그아웃, 위험 */
+  --font-family: 'Noto Sans KR', sans-serif;
+  --panel-border-radius: 8px;
+  --panel-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+/* --- App 전체 레이아웃 (기존 구조 유지) --- */
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+/* --- 상단 헤더 (Header) 개선 --- */
+.top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--border-color);
+}
+.commander-info, .resource-display {
+  display: flex;
+  gap: 20px;
+  color: var(--text-secondary);
+}
+.resource-display { font-size: 0.9em; }
+
+/* --- 좌측 메뉴 패널 개선 --- */
+.main-menu-panel {
+  width: 200px;
+  background-color: var(--bg-main); /* 메인 배경과 통일하여 깊이감 부여 */
+  padding: 1rem;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 우측 메인 디스플레이 패널 (재사용 가능한 '패널' 스타일) --- */
+.panel-container {
+  flex-grow: 1;
+  background-color: var(--bg-panel);
+  padding: 1.5rem;
+  margin: 1rem;
+  border-radius: var(--panel-border-radius);
+  overflow-y: auto;
+  box-shadow: var(--panel-box-shadow);
+}
+/* 스크롤바 디자인 */
+.panel-container::-webkit-scrollbar { width: 8px; }
+.panel-container::-webkit-scrollbar-track { background: var(--bg-main); }
+.panel-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+.panel-container::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+/* --- 일관된 버튼 스타일 시스템 --- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  color: white;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+.btn:disabled { background-color: #555; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.btn-primary { background-color: var(--accent-color); }
+.btn-primary:hover { background-color: var(--accent-color-hover); }
+.btn-secondary { background-color: var(--text-secondary); }
+.btn-secondary:hover { background-color: var(--text-primary); color: var(--bg-main); }
+.btn-green { background-color: var(--color-green); }
+.btn-green:hover { background-color: #38e080; }
+.btn-red { background-color: var(--color-red); }
+.btn-red:hover { background-color: #ff5242; }
+
+/* --- 메뉴 버튼 재정의 --- */
+.main-menu { display: flex; flex-direction: column; gap: 10px; }
+.menu-button {
+  padding: 12px 15px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+.menu-button:hover {
+  background-color: var(--bg-panel-hover);
+  color: var(--text-primary);
+}
+.menu-button.active { /* NavLink의 active 클래스 활용 */
+  background-color: var(--bg-panel);
+  color: var(--accent-color);
+  font-weight: bold;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 12px;
+}
+
+/* --- 로그인 화면 전용 스타일 --- */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+.login-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+.login-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #4285F4; /* 구글 브랜드 색상 */
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+.login-button:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+.login-button img {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* --- 버튼 색상 재정의 --- */
+.action-sortie {
+  background-color: #27ae60;
+  color: white;
+  font-weight: bold;
+}
+.action-sortie:hover { background-color: #2ecc71; }
+
+.action-logout {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+.action-logout:hover { background-color: #e74c3c; }
+
+/* --- 모바일 반응형 --- */
+@media (max-width: 768px) {
+  .main-content { flex-direction: column; }
+  .main-menu-panel { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); padding: 0; }
+  .main-menu { flex-direction: row; overflow-x: auto; padding: 10px; }
+  .menu-button { flex-shrink: 0; }
+  .main-display-panel { margin: 0.5rem; }
+}
